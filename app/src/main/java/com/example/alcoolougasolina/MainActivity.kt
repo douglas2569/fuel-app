@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 //import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if(savedInstanceState != null){
+            percentual = savedInstanceState.getDouble("percentual")
+        }
 
         val btCalc: Button = findViewById(R.id.btCalcular)
         val textMsg:TextView = findViewById(R.id.textMsg)
@@ -60,39 +65,44 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
- private fun valeApenaAlcool(percentual:Double, precoAlcool:Double,precoGasolina:Double ):Boolean{
+    private fun valeApenaAlcool(percentual:Double, precoAlcool:Double,precoGasolina:Double ):Boolean{
      if (precoAlcool <= percentual * precoGasolina){
          return true
      }
      return false
  }
 
-private fun mostrarMsgvaleApenaAlcool(estado:Boolean, textMsg:TextView){
-    if (estado){
-        textMsg.text = "Vale apena usar alcool"
-    }else{
-        textMsg.text = "Não vale apena usar alcool"
+    private fun mostrarMsgvaleApenaAlcool(estado:Boolean, textMsg:TextView){
+        if (estado){
+            textMsg.text = "Vale apena usar alcool"
+        }else{
+            textMsg.text = "Não vale apena usar alcool"
+        }
     }
-}
 
-override fun onResume(){
-    super.onResume()
-    Log.d("PDM24","No onResume, $percentual")
-}
-override fun onStart(){
-    super.onStart()
-    Log.v("PDM24","No onStart")
-}
-override fun onPause(){
-    super.onPause()
-    Log.e("PDM24","No onPause")
-}
-override fun onStop(){
-    super.onStop()
-    Log.w("PDM24","No onStop")
-}
-override fun onDestroy(){
-    super.onDestroy()
-    Log.wtf("PDM24","No Destroy")
-}
+    override fun onResume(){
+        super.onResume()
+        Log.d("PDM24","No onResume, $percentual")
+    }
+    override fun onStart(){
+        super.onStart()
+        Log.v("PDM24","No onStart")
+    }
+    override fun onPause(){
+        super.onPause()
+        Log.e("PDM24","No onPause")
+    }
+    override fun onStop(){
+        super.onStop()
+        Log.w("PDM24","No onStop")
+    }
+    override fun onDestroy(){
+        super.onDestroy()
+        Log.wtf("PDM24","No Destroy")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putDouble("percentual", percentual)
+        super.onSaveInstanceState(outState)
+    }
 }
