@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 precoAlcool = precoAlcoolTextView.text.toString().toDouble()
                 precoGasolina  = precoGasolinaTextView.text.toString().toDouble()
             } catch (e: NumberFormatException) {
-                println("Erro ao converter o preço do álcool para Double: ${e.message}")
+                println("Eroolro ao converter o preço do álc para Double: ${e.message}")
             }
 
             if(precoAlcool == 0.0 || precoGasolina == 0.0){

@@ -4,17 +4,18 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/my_yellow</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/teal_200</item>
         <item name="colorPrimaryDark">#1F1F1F</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#B85045</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
 
         <!-- Customize your theme here. -->
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorHint">@color/black</item>
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">#2F5A56</item>
+
 
     </style>
 </resources>
