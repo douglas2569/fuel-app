@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val textMsg:TextView = findViewById(R.id.textMsg)
 
 
-        //btCalc.setBackgroundColor(Color.CYAN)
+
         btCalc.setOnClickListener(View.OnClickListener {
 
             val switchButton = findViewById<Switch>(R.id.swPercentual)
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
          return true
      }
      return false
- }
+    }
 
     private fun mostrarMsgvaleApenaAlcool(estado:Boolean, textMsg:TextView){
         if (estado){
@@ -78,6 +78,11 @@ class MainActivity : AppCompatActivity() {
         }else{
             textMsg.text = "Não vale apena usar alcool"
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putDouble("percentual", percentual)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onResume(){
@@ -101,8 +106,5 @@ class MainActivity : AppCompatActivity() {
         Log.wtf("PDM24","No Destroy")
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putDouble("percentual", percentual)
-        super.onSaveInstanceState(outState)
-    }
+
 }
